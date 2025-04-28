@@ -4,7 +4,7 @@ Search results will be saved as image stacks (each slice is the CDM of one match
 Modified ColorDepth MIP generator that automatically scales the input image stacks to match the dimension of CDM datasets. (Color_Depth_MIP_Image_Generator_batch.ijm)
 
 **Installation**  
-- Download the latest release here
+- Download the latest release [here](https://github.com/JiajunZhang-neu/Color_Depth_MIP_Image_Generator_batch_and_Mask_Search_batch/releases/tag/1.0.0)
 - Unzip the file
 - Close FIJI if it is running
 - Copy all contents to your FIJI folder (something like "C:\Program Files\Fiji.app\")
