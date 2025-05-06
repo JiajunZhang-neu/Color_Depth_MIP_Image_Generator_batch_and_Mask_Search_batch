@@ -9,9 +9,11 @@
 //#@ String (label = "File suffix", value = ".tif") suffix
 //#@ String (visibility=MESSAGE, value="Currently supports .tif and .png formats.",required=false) formats
 //#@ File (label = "Output directory", style = "directory") output
-#@ String (label = "Result file name", value = "") task_name
+//#@ String (label = "Result file name", value = "") task_name
+#@ File (label = "Path to save the result Log file",style = "save") log_file 
 #@ Integer (label = "Max number of the hits", value=100) max_hits
-#@ Boolean (label = "Save CDM results for each mask",value=false) save_CDM
+#@ Boolean (label = "Save results as a CDM stack for each mask",value=false) save_CDM
+#@ File (label="Folder to save the CDM stack(s)",style = "directory",value="") save_CDM_path
 #@ String (label = "[EM] Show special matching", choices = {"Show hits on a same side (Not for commissure)","Show Commissure matching (Bothside commissure)", "None"}, style = "radioButtonHorizontal") showFlip
 #@ Integer (label = "Threshold for mask", style="slider", min=0, max=255, value=30) mask_threshold
 #@ Boolean (label = "Add mirror search", value=true) add_mirror_search
@@ -41,10 +43,10 @@ search_parameters = para_builder();
 processFolder(input);
 
 Search_Results = getInfo("log");
-File.saveString(Search_Results, input + File.separator + "CDM_Search_Results_" + task_name + ".txt");
+File.saveString(Search_Results, log_file);
 
 Dialog.create("Batch CDM Mask Search");
-Dialog.addMessage("Search Complete. Result is saved in " + input + ".");
+Dialog.addMessage("Search Complete. Result is saved in " + log_file + ".");
 Dialog.show();
 
 
@@ -147,8 +149,9 @@ function processFile(input, file) {
         print(slicename);
     }
     
-    saveAs("Tiff", input + File.separator + stackname);
-    
+    if (save_CDM==true) {
+    	saveAs("Tiff", save_CDM_path + File.separator + stackname);
+    }
     //close MASK and Result
     close(file);
     close("Search_Result"+file);
