@@ -2,6 +2,7 @@
 #@ File (label="Folder of aligned confocal files",style="directory") dir
 //#@ String (visibility=MESSAGE, value="Aligned files should have the same aspect ratio as the JRC2018 template (Brain / VNC)",required=false) formats
 #@ File (label="Folder to save generated CDM", style="directory") dirCOLOR
+#@ String (label="File format for saving CDM", value=".png") CDM_format
 
 //Wrote by Hideo Otsuna (HHMI Janelia Research Campus), Aug 4, 2015
 
@@ -1868,12 +1869,14 @@ function mipfunction(nc82nrrd,mipbatch,easyADJ,GammaON) {
 				if(imageNum==1){
 					if(AutoBRV==1){
 						if(packbits==0){
-							save(myDir2Co+origiMIP+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+".tif");
+//							save(myDir2Co+origiMIP+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+".tif");
+							save(myDir2Co+origiMIP+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+CDM_format); // Jiajun add, allow user to decide saving format
 							close();
 							
 							if(Hrizontal){
 								selectWindow("H_CDM.tif");
-								save(myDir2Co+origiMIP+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+"_H.tif");
+//								save(myDir2Co+origiMIP+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+"_H.tif");
+								save(myDir2Co+origiMIP+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+"_H" +CDM_format);// Jiajun add, allow user to decide saving format
 								close();
 							}
 						}else{
@@ -1889,17 +1892,20 @@ function mipfunction(nc82nrrd,mipbatch,easyADJ,GammaON) {
 							}
 						}
 					}else
-					save(myDir2Co+origiMIP+".tif");
+//					save(myDir2Co+origiMIP+".tif");
+					save(myDir2Co+origiMIP+CDM_format);// Jiajun add, allow user to decide saving format
 					
 				}else{
 					if(AutoBRV==1){
 						
 						if(packbits==0){
-							save(myDir2Co+origiMIP+"_CH"+MIPtry+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+".tif");
+//							save(myDir2Co+origiMIP+"_CH"+MIPtry+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+".tif");
+							save(myDir2Co+origiMIP+"_CH"+MIPtry+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+CDM_format); // Jiajun add, allow user to decide saving format
 							
 							if(Hrizontal){
 								selectWindow("H_CDM.tif");
-								save(myDir2Co+origiMIP+"_CH"+MIPtry+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+"_H.tif");
+//								save(myDir2Co+origiMIP+"_CH"+MIPtry+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+"_H.tif");
+								save(myDir2Co+origiMIP+"_CH"+MIPtry+QIvalue+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+"_H"+CDM_format); // Jiajun add, allow user to decide saving format
 								close();
 							}
 						}else{
@@ -1920,7 +1926,8 @@ function mipfunction(nc82nrrd,mipbatch,easyADJ,GammaON) {
 							}
 						}
 					}else
-					save(myDir2Co+origiMIP+"_CH"+MIPtry+".tif");
+//					save(myDir2Co+origiMIP+"_CH"+MIPtry+".tif");
+					save(myDir2Co+origiMIP+"_CH"+MIPtry+CDM_format); // Jiajun add, allow user to decide saving format
 					
 					if(AutoBRV==1)
 					print("AutoBRV; "+AutoBRV+"   MIP saved; "+myDir2Co+origiMIP+"_CH"+MIPtry+applyVST+applyV+DSLTst+sigsize+threST+sigsizethre+".tif");

@@ -10,7 +10,10 @@
 //#@ String (visibility=MESSAGE, value="Currently supports .tif and .png formats.",required=false) formats
 //#@ File (label = "Output directory", style = "directory") output
 //#@ String (label = "Result file name", value = "") task_name
-#@ File (label = "Path to save the result Log file",style = "save") log_file 
+#@ File (label = "Path to save the result Log file",style = "save") log_file
+if (!endsWith(log_file, ".txt")) {
+    log_file = log_file + ".txt";
+}
 #@ Integer (label = "Max number of the hits", value=100) max_hits
 #@ Boolean (label = "Save results as a CDM stack for each mask",value=false) save_CDM
 #@ File (label="Folder to save the CDM stack(s)",style = "directory",value="") save_CDM_path
