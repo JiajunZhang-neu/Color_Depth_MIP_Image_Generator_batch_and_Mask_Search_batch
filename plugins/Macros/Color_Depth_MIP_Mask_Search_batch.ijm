@@ -35,7 +35,7 @@ print("\\Clear");
 
 //Open Dataset CDM
 File.openSequence(CDM_dataset, "virtual");
-datasetTitle = "[" + getTitle() +  "  (" + nSlices + ") slices]"
+datasetTitle = "[" + getTitle() +  "  (" + nSlices + ") slices]";
 
 // Build search parameters
 n_cores = parseInt(call( "ij.util.ThreadUtil.getNbCpus" ));
