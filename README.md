@@ -1,7 +1,7 @@
 A wrapper combining [ColorDepth MIP mask Search for LM](https://github.com/JaneliaSciComp/ColorMIP_Mask_Search) and [ColorDepth MIP mask search for EM](https://github.com/JaneliaSciComp/EM_MIP_search). (Color_Depth_MIP_Mask_Search_batch.ijm)  
 Search results will be saved as image stacks (each slice is the CDM of one match) and a text file which can be directly read by [MADI](https://github.com/sandorbx/MADI) for 3D visualization.
 
-Modified ColorDepth MIP generator that automatically scales the input image stacks to match the dimension of CDM datasets. (Color_Depth_MIP_Image_Generator_batch.ijm)
+Modified [ColorDepth MIP generator] (https://github.com/JaneliaSciComp/ColorMIP_Mask_Search/tree/master/ColorDepthMIP_Generator) that automatically scales the input image stacks to match the dimension of CDM datasets. (Color_Depth_MIP_Image_Generator_batch.ijm)
 
 **Installation**  
 - Download the latest release [here](https://github.com/JiajunZhang-neu/Color_Depth_MIP_Image_Generator_batch_and_Mask_Search_batch/releases/tag/1.0.0)
